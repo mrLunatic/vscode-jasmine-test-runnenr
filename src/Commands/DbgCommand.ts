@@ -20,6 +20,9 @@ function create(fileName: string, testCase?: string): DebugCommand {
 
 async function run(cfg: Config, ...args: any[]): Promise<void> {
     const fileName = args[0] as string;
+    if (fileName === undefined) {
+        throw new Error("Test file not specified");
+    }
     const testCase = args[1] as string|undefined;
     if (cfg.jasmine.binary === undefined) {
         throw new Error("Jasmine binary path not specified");

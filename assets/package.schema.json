@@ -1,0 +1,33 @@
+{
+    "$id": "https://jasmine-test-runner.com/package.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Jasmine test runner config",
+    "properties": {
+        "jasmine-test-runner": {
+            "type": "object",
+            "required": [ "jasmine.binary" ],
+            "properties": {
+                "jasmine.binary": {
+                    "type": "string",
+                    "default": "./node_modules/jasmine/bin/jasmine.js",
+                    "description": "Path to executable jasmine.js file in workspace"
+                },
+                "jasmine.config": {
+                    "type": "string",
+                    "default": "./jasmine.json",
+                    "description": "Path to jasmine.json file in project"
+                },
+                "code.source": {
+                    "type": "string",
+                    "default": "./test",
+                    "description": "Path to source test files directory in project"
+                },
+                "code.compiled": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to compiled tests files directory in project"
+                }
+            }
+        }
+    }
+}

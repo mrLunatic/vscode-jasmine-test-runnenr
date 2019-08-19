@@ -1,25 +1,40 @@
 {
     "name": "vscode-jasmine-test-runner",
     "displayName": "Jasmine test runner",
-    "description": "Toot to run and debug jasmine tests",
-    "version": "0.0.1",
+    "description": "CodeLense-base jasmine test launcher",
+    "version": "0.1.0",
+    "publisher": "DmitriyMuraviov",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mrLunatic/vscode-jasmine-test-runner"
+    },
     "engines": {
         "vscode": "^1.37.0"
     },
     "categories": [
         "Other"
     ],
+    "keywords": [
+        "jasmine",
+        "test"
+    ],
     "activationEvents": [
         "onLanguage:typescript",
         "onLanguage:javascript",
-        "onCommand:vscode-jasmine-test-runner.debug-test"
+        "onCommand:vscode-jasmine-test-runner.debug-test",
+        "onCommand:vscode-jasmine-test-runner.run-test"
     ],
     "main": "./out/extension.js",
+    "icon": "assets/icon.png",
     "contributes": {
         "commands": [
             {
                 "command": "vscode-jasmine-test-runner.debug-test",
-                "title": "Jasmine test: Debug"
+                "title": "Jasmine test rubber: Debug"
+            },
+            {
+                "command": "vscode-jasmine-test-runner.run-test",
+                "title": "Jasmine test rubber: Run"
             }
         ],
         "configuration": {
@@ -46,7 +61,17 @@
                     "description": "Path to compiled tests files directory in project"
                 }
             }
-        }
+        },
+        "jsonValidation": [
+            {
+                "fileMatch": "jasmine-test-runner.json",
+                "url": "./assets/config.schema.json"
+            },
+            {
+                "fileMatch": "package.json",
+                "url": "./assets/package.schema.json"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -59,8 +84,8 @@
         "@types/node": "^10.12.21",
         "@types/vscode": "^1.37.0",
         "typescript": "^3.3.1",
-        "tslint": "^5.12.1"
+        "tslint": "^5.12.1",
+        "vsce": "^1.66.0"
     },
-    "dependencies": {
-    }
+    "dependencies": { }
 }
