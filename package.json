@@ -10,7 +10,9 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:jasmine-ts.run-test"
+        "onLanguage:typescript",
+        "onLanguage:javascript",
+        "onCommand:vscode-jasmine-test-runner.debug-test"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -19,7 +21,32 @@
                 "command": "vscode-jasmine-test-runner.debug-test",
                 "title": "Jasmine test: Debug"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "Jasmine test runner",
+            "properties": {
+                "jasmineTestRunner.jasmine.binary": {
+                    "type": "string",
+                    "default": "./node_modules/jasmine/bin/jasmine.js",
+                    "description": "Path to executable jasmine.js file in workspace"
+                },
+                "jasmineTestRunner.jasmine.config": {
+                    "type": "string",
+                    "default": "./jasmine.json",
+                    "description": "Path to jasmine.json file in project"
+                },
+                "jasmineTestRunner.code.source": {
+                    "type": "string",
+                    "default": "./test",
+                    "description": "Path to source test files directory in project"
+                },
+                "jasmineTestRunner.code.compiled": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to compiled tests files directory in project"
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -33,5 +60,7 @@
         "@types/vscode": "^1.37.0",
         "typescript": "^3.3.1",
         "tslint": "^5.12.1"
+    },
+    "dependencies": {
     }
 }

@@ -10,7 +10,11 @@
             true,
             "always"
         ],
-        "triple-equals": true
+        "triple-equals": true,
+        "interface-name" : [
+            true,
+            "never-prefix"
+        ]
     },
     "defaultSeverity": "warning"
 }
