@@ -2,7 +2,7 @@
     "name": "vscode-jasmine-test-runner",
     "displayName": "Jasmine test runner",
     "description": "CodeLense-base jasmine test launcher",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "DmitriyMuraviov",
     "repository": {
         "type": "git",
@@ -75,6 +75,7 @@
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
+        "pack": "vsce package",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile",
@@ -83,9 +84,10 @@
     "devDependencies": {
         "@types/node": "^10.12.21",
         "@types/vscode": "^1.37.0",
-        "typescript": "^3.3.1",
         "tslint": "^5.12.1",
         "vsce": "^1.66.0"
     },
-    "dependencies": { }
+    "dependencies": {
+        "typescript": "^3.3.1"
+    }
 }
